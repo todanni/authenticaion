@@ -2,7 +2,10 @@ package server
 
 import "net/http"
 
-func (s *templateService) routes() {
-	// GET an template
-	s.router.HandleFunc("/api/template", s.TemplateMethod).Methods(http.MethodGet)
+func (s *tokenService) routes() {
+	// Issue a token
+	s.router.HandleFunc("/issue", s.Issue).Methods(http.MethodGet)
+
+	// Verify a token
+	s.router.HandleFunc("/verify", s.Verify).Methods(http.MethodPost)
 }
